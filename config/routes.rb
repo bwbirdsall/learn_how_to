@@ -7,6 +7,7 @@ LearnHow::Application.routes.draw do
   match('/chapters/:id', {:via => :get, :to => 'chapters#show'})
   match('/chapters/:id/edit', {:via => :get, :to => 'chapters#edit'})
   match('/chapters/:id/', {:via => [:patch, :put], :to => 'chapters#update'})
+  match('/chapters/:id', {:via => :delete, :to => 'chapters#destroy'})
 
   match('/sections/', {:via => :get, :to => 'sections#index'})
   match('/sections/new', {:via => :get, :to => 'sections#new'})

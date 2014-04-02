@@ -9,4 +9,27 @@ class Section < ActiveRecord::Base
     Section.all.sort {|a,b| a.number <=> b.number}
   end
 
+  def next
+    @next_section = Section.new
+    Section.ordered.each_with_index do |section, index|
+      if section.number == self.number
+        @next_section = Section.ordered[index + 1]
+      end
+    end
+    @next_section
+  end
+
+  def previous
+    @previous_section = Section.new
+    Section.ordered.each_with_index do |section, index|
+      if section.number == self.number
+        if index == 0
+          @previous_section = nil
+        else
+          @previous_section = Section.ordered[index - 1]
+        end
+      end
+    end
+    @previous_section
+  end
 end

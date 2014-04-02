@@ -18,5 +18,19 @@
 </ul>
 
 <p><a href="/chapters/<%= @chapter.id %>/edit">Edit this Chapter</a>
+<br><a href="/chapters/<%= @chapter.id %>"
+       data-confirm="Are you sure you want to destroy <%= @chapter.name %>? This will orphan any associated sections and lessons. (Orphans are still accessible on the main Sections or Lessons page.)"
+       data-method="delete"
+       rel="nofollow">Delete this Chapter</a>
 <br><a href="/chapters/">To the Chapters Menu!</a>
 <br><a href="/" class="navigation">No, to the Main Page!</a></p>
+<br/>
+<br/>
+<p class="section_header">
+<% if @chapter.next %>
+<br/><a href="/chapters/<%=@chapter.next.id %>">Next Chapter</a>
+<% end %>
+<% if @chapter.previous %>
+  <br/><a href="/chapters/<%=@chapter.previous.id %>">Previous Chapter</a>
+<% end %>
+</p>

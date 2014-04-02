@@ -1,7 +1,7 @@
 <h1>All the Lessons that are.</h1>
 
 <ul>
-  <% @lessons.each do |lesson| %>
+  <% Lesson.ordered.each do |lesson| %>
     <li><span class="section_header">#<%= lesson.number %></span> <a href="/lessons/<%= lesson.id %>" class="chapter_header"><%= lesson.name %>, a fine lesson indeed.</a></li>
   <% end %>
 </ul>

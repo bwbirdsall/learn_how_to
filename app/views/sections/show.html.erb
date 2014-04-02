@@ -9,5 +9,19 @@
 </ul>
 
 <p><a href="/sections/<%= @section.id %>/edit">Edit this Section</a>
+  <br><a href="/sections/<%= @section.id %>"
+       data-confirm="Are you sure you want to destroy <%= @section.name %>? This will orphan any associated lessons. (Orphans are still accessible on the main Lessons page.)"
+       data-method="delete"
+       rel="nofollow">Delete this Section</a>
 <br><a href="/sections/">To the Sections Menu!</a>
 <br><a href="/" class="navigation">No, to the Main Page!</a></p>
+<br/>
+<br/>
+<p class="section_header">
+<% if @section.next %>
+<br/><a href="/sections/<%=@section.next.id %>">Next Section</a>
+<% end %>
+<% if @section.previous %>
+  <br/><a href="/sections/<%=@section.previous.id %>">Previous Section</a>
+<% end %>
+</p>

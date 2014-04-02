@@ -9,4 +9,28 @@ class Lesson < ActiveRecord::Base
     Lesson.all.sort {|a,b| a.number <=> b.number}
   end
 
+
+  def next
+    @next_lesson = Lesson.new
+    Lesson.ordered.each_with_index do |lesson, index|
+      if lesson.number == self.number
+        @next_lesson = Lesson.ordered[index + 1]
+      end
+    end
+    @next_lesson
+  end
+
+  def previous
+    @previous_lesson = Lesson.new
+    Lesson.ordered.each_with_index do |lesson, index|
+      if lesson.number == self.number
+        if index == 0
+          @previous_lesson = nil
+        else
+          @previous_lesson = Lesson.ordered[index - 1]
+        end
+      end
+    end
+    @previous_lesson
+  end
 end

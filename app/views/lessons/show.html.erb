@@ -3,5 +3,19 @@
 <p><%= @lesson.lesson_body %></p>
 
 <p><a href="/lessons/<%= @lesson.id %>/edit">Edit this Lesson</a>
+  <br><a href="/lessons/<%= @lesson.id %>"
+       data-confirm="Are you sure you want to destroy <%= @lesson.name %>?"
+       data-method="delete"
+       rel="nofollow">Delete this Lesson</a>
 <br><a href="/lessons/">To the Lessons Menu!</a>
 <br><a href="/" class="navigation">No, to the Main Page!</a></p>
+<br/>
+<br/>
+<p class="section_header">
+<% if @lesson.next %>
+<br/><a href="/lessons/<%=@lesson.next.id %>">Next Lesson</a>
+<% end %>
+<% if @lesson.previous %>
+  <br/><a href="/lessons/<%=@lesson.previous.id %>">Previous Lesson</a>
+<% end %>
+</p>
