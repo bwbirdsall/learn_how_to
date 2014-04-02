@@ -6,7 +6,7 @@ class Lesson < ActiveRecord::Base
   validates :section_id, presence: true
 
   def self.ordered
-    Lesson.all.sort {|a,b| a.number <=> b.number}
+    Lesson.order(:number)
   end
 
 

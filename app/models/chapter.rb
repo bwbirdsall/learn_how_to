@@ -5,7 +5,7 @@ class Chapter < ActiveRecord::Base
   validates :number, presence: true, uniqueness: true
 
   def self.ordered
-    Chapter.all.sort {|a,b| a.number <=> b.number}
+    Chapter.order(:number)
   end
 
   def next

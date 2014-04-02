@@ -6,7 +6,7 @@ class Section < ActiveRecord::Base
   validates :chapter_id, presence: true
 
   def self.ordered
-    Section.all.sort {|a,b| a.number <=> b.number}
+    Section.order(:number)
   end
 
   def next
