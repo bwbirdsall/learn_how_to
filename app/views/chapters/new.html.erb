@@ -1,0 +1,20 @@
+<h1 class="jumbotron">Create New Chapter</h1>
+
+  <% if @chapter.errors.any? %>
+    <h4>Please fix these errors:</h4>
+    <ul>
+      <% @chapter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<form action="/chapters/new" method="post">
+  <p><label for="chapter_name"><h4>Name:</h4></label>
+  <input id="chapter_name" name="chapters[name]" type="text" value="<%= @chapter.name %>"></input></p>
+  <p><label for="chapter_number"><h4>Number:</h4></label>
+  <input id="chapter_number" name="chapters[number]" type="text" value="<%= @chapter.number %>"></input></p>
+  <button>Add Chapter</button>
+</form>
+
+<p><br/><a href="/chapters" class="navigation">Return to All Chapters.</a></p>

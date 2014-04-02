@@ -1,0 +1,27 @@
+<h1 class="jumbotron">Create New Section</h1>
+
+  <% if @section.errors.any? %>
+    <h4>Please fix these errors:</h4>
+    <ul>
+      <% @section.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<form action="/sections/new" method="post">
+  <p><label for="section_name"><h4>Name:</h4></label>
+  <input id="section_name" name="sections[name]" type="text"></input></p>
+  <p><label for="section_number"><h4>Number:</h4></label>
+  <input id="section_number" name="sections[number]" type="text"></input></p>
+  <p><label for="section_chapter_id"><h4>Chapter:</h4></label>
+  <select id="section_chapter_id" name="sections[chapter_id]">
+    <option selected disabled>Choose One</option>
+    <% Chapter.all.each do |chapter| %>
+      <option value="<%= chapter.id %>"><%= chapter.name %></option>
+    <% end %>
+  </select></p>
+  <button>Add Section</button>
+</form>
+
+<p><br/><a href="/sections" class="navigation">Return to All Sections.</a></p>

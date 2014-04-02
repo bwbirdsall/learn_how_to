@@ -1,0 +1,10 @@
+<h1>All the Lessons that are.</h1>
+
+<ul>
+  <% @lessons.each do |lesson| %>
+    <li><%= lesson.number %>. <%= lesson.name %>, a fine lesson indeed.</li>
+  <% end %>
+</ul>
+
+<p><a href="/lessons/new" class="navigation">Add new lesson.</a></p>
+<p><a href="/" class="navigation">Return to the Main Page.</a></p>

@@ -1,0 +1,10 @@
+<h1>All the Sections that are.</h1>
+
+<ul>
+  <% Section.ordered.each do |section| %>
+    <li><%= section.number %>. <%= section.name %></li>
+  <% end %>
+</ul>
+
+<p><a href="/sections/new" class="navigation">Add new section.</a></p>
+<p><a href="/" class="navigation">Return to the Main Page.</a></p>

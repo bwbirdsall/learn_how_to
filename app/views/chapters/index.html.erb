@@ -1,0 +1,10 @@
+<h1>All the Chapters that are.</h1>
+
+<ul>
+  <% Chapter.ordered.each do |chapter| %>
+    <li><%= chapter.number %>. <%= chapter.name %></li>
+  <% end %>
+</ul>
+
+<p><a href="/chapters/new" class="navigation">Add new chapter.</a></p>
+<p><a href="/" class="navigation">Return to the Front Page</a></p>

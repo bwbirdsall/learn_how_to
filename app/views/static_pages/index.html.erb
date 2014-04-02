@@ -1,0 +1,34 @@
+<h1 class="jumbotron">Cosmos - Learn How To</h1>
+
+  <ul>
+    <% Chapter.ordered.each do |chapter| %>
+    <li>
+      <a href="/chapters/<%= chapter.id %>" class="chapter_header">Chapter: <%= chapter.name %></a>
+
+      <ul>
+        <% chapter.sections.ordered.each do |section| %>
+        <li>
+          <a href="/sections/<%= section.id %>" class="section_header">Section: <%= section.name %></a>
+
+          <ul>
+            <% section.lessons.ordered.each do |lesson| %>
+            <li>
+              <a href="/lessons/<%= lesson.id %>" class="lesson_header">Lesson: <%= lesson.name %></a>
+            </li>
+            <% end %>
+          </ul>
+
+        </li>
+        <% end %>
+      </ul>
+
+    </li>
+    <% end %>
+  </ul>
+
+<br/>
+<br/>
+<br/>
+<p><a href="/chapters/" class="navigation">Go to <b>Chapters Page</b>, O Thou Author of the Cosmos Guide</a>
+<br><a href="/sections/" class="navigation">Go to <b>Sections Page</b>, O Thou Author of the Cosmos Guide</a>
+<br><a href="/lessons/" class="navigation">Go to <b>Lessons Page</b>, O Thou Author of the Cosmos Guide</a></p>
