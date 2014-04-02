@@ -1,4 +1,4 @@
-<h1 class="jumbotron">Create New Section</h1>
+<h1 class="jumbotron">Edit Section <span class="name"><%= @section.name %></span></h1>
 
   <% if @section.errors.any? %>
     <h4>Please fix these errors:</h4>
@@ -9,7 +9,8 @@
     </ul>
   <% end %>
 
-<form action="/sections/new" method="post">
+<form action="/sections/<%= @section.id %>" method="post">
+  <input name="_method" value="patch" type="hidden">
   <p><label for="section_name"><h4>Name:</h4></label>
   <input id="section_name" name="sections[name]" type="text" value="<%= @section.name %>"></input></p>
   <p><label for="section_number"><h4>Number:</h4></label>
@@ -25,7 +26,7 @@
       <option value="<%= chapter.id %>"><%= chapter.name %></option>
     <% end %>
   </select></p>
-  <button>Add Section</button>
+  <button>Update Section</button>
 </form>
 
 <p><br/><a href="/sections" class="navigation">Return to All Sections.</a></p>

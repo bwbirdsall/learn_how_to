@@ -1,0 +1,38 @@
+<h1 class="jumbotron">Edit Lesson <span class="name"><%= @lesson.name %></span></h1>
+
+  <% if @lesson.errors.any? %>
+    <h4>Please fix these errors:</h4>
+    <ul>
+      <% @lesson.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<form action="/lessons/<%= @lesson.id %>" method="post">
+  <input name="_method" value="patch" type="hidden">
+  <p><label for="lesson_name"><h4>Name:</h4></label>
+  <input id="lesson_name" name="lessons[name]" type="text" value="<%= @lesson.name %>"></input></p>
+  <p><label for="lesson_number"><h4>Number:</h4></label>
+  <input id="lesson_number" name="lessons[number]" type="text" value="<%= @lesson.number %>"></input></p>
+  <p><label for="lesson_section_id"><h4>Section:</h4></label>
+  <select id="lesson_section_id" name="lessons[section_id]">
+    <% if @lesson.section_id %>
+      <option selected value="<%= @lesson.section_id %>"><%= @lesson.section.name %></option>
+    <% else %>
+      <option selected disabled>Choose One</option>
+    <% end %>
+    <% Section.all.each do |section| %>
+      <option value="<%= section.id %>"><%= section.name %></option>
+    <% end %>
+  </select></p>
+  <p><label for="lesson_lesson_body"><h4>Lesson Text:</h4></label>
+  <textarea id="lesson_lesson_body" name="lessons[lesson_body]" cols="100" rows="10" placeholder="Enter lesson text here.">
+  <% if @lesson.lesson_body %>
+    <%= @lesson.lesson_body %>
+  <% end %>
+  </textarea></p>
+  <button>Update Lesson</button>
+</form>
+
+<p><br/><a href="/lessons" class="navigation">Return to All Lessons.</a></p>

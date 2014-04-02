@@ -2,9 +2,9 @@
 
 <ul>
   <% Section.ordered.each do |section| %>
-    <li><%= section.number %>. <%= section.name %></li>
+    <li><span class="section_header">#<%= section.number %> <a href="/sections/<%= section.id %>" class="chapter_header"><%= section.name %></a></span></li>
   <% end %>
 </ul>
 
-<p><a href="/sections/new" class="navigation">Add new section.</a></p>
-<p><a href="/" class="navigation">Return to the Main Page.</a></p>
+<p><a href="/sections/new">Add new section.</a>
+<br><a href="/" class="navigation">To the Main Page!</a></p>

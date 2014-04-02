@@ -2,9 +2,9 @@
 
 <ul>
   <% @lessons.each do |lesson| %>
-    <li><%= lesson.number %>. <%= lesson.name %>, a fine lesson indeed.</li>
+    <li><span class="section_header">#<%= lesson.number %></span> <a href="/lessons/<%= lesson.id %>" class="chapter_header"><%= lesson.name %>, a fine lesson indeed.</a></li>
   <% end %>
 </ul>
 
-<p><a href="/lessons/new" class="navigation">Add new lesson.</a></p>
-<p><a href="/" class="navigation">Return to the Main Page.</a></p>
+<p><a href="/lessons/new">Add new lesson.</a>
+<br><a href="/" class="navigation">To the Main Page!</a></p>

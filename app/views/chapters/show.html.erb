@@ -1,0 +1,22 @@
+<h2 class="jumbotron">Being the Chapter on the subject of <span class="name"><%= @chapter.name %></span></h2>
+
+<ul>
+  <% @chapter.sections.ordered.each do |section| %>
+  <li>
+    <a href="/sections/<%= section.id %>" class="section_header">Section: <%= section.name %></a>
+
+    <ul>
+      <% section.lessons.ordered.each do |lesson| %>
+      <li>
+        <a href="/lessons/<%= lesson.id %>" class="lesson_header">Lesson: <%= lesson.name %></a>
+      </li>
+      <% end %>
+    </ul>
+
+  </li>
+  <% end %>
+</ul>
+
+<p><a href="/chapters/<%= @chapter.id %>/edit">Edit this Chapter</a>
+<br><a href="/chapters/">To the Chapters Menu!</a>
+<br><a href="/" class="navigation">No, to the Main Page!</a></p>

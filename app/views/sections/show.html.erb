@@ -1,0 +1,13 @@
+<h2 class="jumbotron">Being the Section on the subject of <span class="name"><%= @section.name %></span></h2>
+
+<ul>
+  <% @section.lessons.ordered.each do |lesson| %>
+  <li>
+    <a href="/lessons/<%= lesson.id %>" class="section_header">Lesson: <%= lesson.name %></a>
+  </li>
+  <% end %>
+</ul>
+
+<p><a href="/sections/<%= @section.id %>/edit">Edit this Section</a>
+<br><a href="/sections/">To the Sections Menu!</a>
+<br><a href="/" class="navigation">No, to the Main Page!</a></p>
